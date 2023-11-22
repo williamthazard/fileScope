@@ -2,6 +2,7 @@
 
 o = Server.default.options;
 o.memSize_(2.pow(20));
+o.outDevice_("External Headphones");
 ~bf = Buffer.alloc(Server.default,4096,2);
 ~fb = Bus.audio(Server.default,2);
 Window.closeAll;
@@ -180,6 +181,6 @@ Task({
  		Out.ar(bus,sig)
  	}).play(s,[\out,0]);
  	s.sync;
-	Synth(\PlayBufPlayer,[\bufnum,b,\t_trig,1,\bus,~fb.index]);
-	Synth(\PlayBufPlayer,[\bufnum,c,\t_trig,1,\bus,~fb.index+1]);
+	Synth(\PlayBufPlayer,[\bufnum,b,\t_trig,1,\bus,~fb.index,\pan,-1]);
+	Synth(\PlayBufPlayer,[\bufnum,c,\t_trig,1,\bus,~fb.index,\pan,1]);
 }).play
