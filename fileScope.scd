@@ -172,10 +172,7 @@ Task({
  			interpolation:4,
  		);
  		sig=Pan2.ar(
- 			MoogFF.ar(
- 				in:(crossfade*snd)+((1-crossfade)*snd2)*env,
- 				freq:\cutoff.kr(12000),
- 			gain:\resonance.kr(1)),
+ 			(crossfade*snd)+((1-crossfade)*snd2)*env,
  			pan
  		);
  		Out.ar(bus,sig)
