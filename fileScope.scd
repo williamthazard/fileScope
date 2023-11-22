@@ -2,7 +2,6 @@
 
 o = Server.default.options;
 o.memSize_(2.pow(20));
-o.outDevice_("External Headphones");
 ~bf = Buffer.alloc(Server.default,4096,2);
 ~fb = Bus.audio(Server.default,2);
 Window.closeAll;
